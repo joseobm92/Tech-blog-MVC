@@ -13,7 +13,26 @@ Post.init(
     content: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
+    created_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   }
+    // },
+    // comment_id: {
+    //   type: DataTypes.INTEGER,
+    //   reference: {
+    //     model: 'comment',
+    //     key: 'id'
+    //   }
+    // }
     
   },
   {
