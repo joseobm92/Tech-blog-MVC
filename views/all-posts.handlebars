@@ -1,8 +1,26 @@
-<div class="container">
-<h2> Current Posts </h2>
+{{#if logged_in}}
+<div class="container new-post-form mb-5 shadow pt-3 pb-3">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title:</label>
+    <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Content</label>
+    <input type="" class="form-control" id="contentInput">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
-{{#each posts as |post|}}
-<div class="container mb-3">
+{{/if}}
+
+<div class="container border-bottom">
+<h2> Current Posts: </h2>
+</div>
+{{!-- [posts come from homeroute] --}}
+{{#each posts as |post|}} 
+<div class="container mb-3 mt-3">
   <div class="card">
     <div class="card-header">
       {{post.title}}
@@ -17,50 +35,5 @@
 </div>
 {{/each}}
 
-<div class="container new-post-form">
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Title:</label>
-    <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Content</label>
-    <input type="" class="form-control" id="contentInput">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
-
-
-
-{{!-- <!-- This is the form for adding a new dish -->
-<div class="add-post-container">
-  <h2>
-    Add a Post:
-  </h2>
-  <form class="new-post-form">
-    <label for="post_title">
-      Title:
-    </label>
-    <br />
-    <textarea id="post_title" name="post_title" rows="2" cols="30">
-      {{title}}
-    </textarea>
-    <br />
-    <label for="description">
-      Comment:
-    </label>
-    <br />
-    <textarea id="comment" name="description" rows="5" cols="30">
-      {{comment}}
-    </textarea>
-    <br />
-    <button type="submit" value="Submit">
-      Submit
-    </button>
-  </form>
-</div>
-</div> --}}
 
 <script src="/js/new.js"></script>

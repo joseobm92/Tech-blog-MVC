@@ -9,8 +9,8 @@ async function newFormHandler(event) {
       method: 'POST',
       body: JSON.stringify({
 
-        content: newContent,
         title: newTitle,
+        content: newContent,
        
       }),
       headers: {
