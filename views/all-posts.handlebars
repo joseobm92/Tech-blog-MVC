@@ -1,21 +1,40 @@
-<h2> Current Posts </h2>
-{{#each posts as |post|}}
 <div class="container">
+<h2> Current Posts </h2>
+</div>
+{{#each posts as |post|}}
+<div class="container mb-3">
   <div class="card">
     <div class="card-header">
       {{post.title}}
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{post.title}} {{post.uder_id}}</h5>
+      
+      <h5 class="card-title">{{post.title}} {{post.user.username}}</h5>
+   
       <p class="card-text">{{post.content}}</p>
     </div>
   </div>
 </div>
 {{/each}}
 
+<div class="container new-post-form">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title:</label>
+    <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Content</label>
+    <input type="" class="form-control" id="contentInput">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
 
 
-<!-- This is the form for adding a new dish -->
+
+{{!-- <!-- This is the form for adding a new dish -->
 <div class="add-post-container">
   <h2>
     Add a Post:
@@ -42,6 +61,6 @@
     </button>
   </form>
 </div>
-</div>
+</div> --}}
 
-<script src="/js/add-post.js"></script>
+<script src="/js/new.js"></script>

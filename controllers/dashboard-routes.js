@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         res.json(err);
       });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('all-posts', { posts });
+        res.render('all-posts-admin', { posts });
       });
   
   // route to get one post
