@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Post = require('../../models/Post');
+const withAuth = require('../../utils/auth')
 
 // route to create/add a post
 router.post('/', async (req, res) => {
@@ -8,6 +9,7 @@ router.post('/', async (req, res) => {
      
     title: req.body.title,
     content: req.body.content,
+    user_id: req.session.user_id,
     
   });
   res.status(200).json(postData)
