@@ -1,8 +1,8 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const newContent = document.querySelector('#contentInput').value;
-    const newTitle = document.querySelector('#titleInput').value;
+    const newContent = document.querySelector('#contentInput').value; //grab this values from all-posts or all-posts-admin
+    const newTitle = document.querySelector('#titleInput').value; //grab this values from all-posts or all-posts-admin
     
   
     const response = await fetch(`/api/post`, {
@@ -19,13 +19,13 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/'); // if the response is positive lay the home URL
     } else {
       alert('Failed to add Post');
     }
   }
   
   document
-    .querySelector('.new-post-form')
+    .querySelector('.new-post-form') // listening to the submit on all-post or all-post-admin
     .addEventListener('submit', newFormHandler);
   

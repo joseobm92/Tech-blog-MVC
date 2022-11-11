@@ -4,12 +4,12 @@ const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all POST and JOIN with USER data
     const postData = await Post.findAll({
       include: [
         {
           model: User,
-          attributes: ['username',],
+          attributes: ['username', 'id',],
         },
       ],
     });
@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    console.log(posts)
     res.render('all-posts', {
       posts,
       logged_in: req.session.logged_in
@@ -29,20 +28,20 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => { //add withAuth to block user from Clicking a single Post and redirect them to login!
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['username', 'id',],
         },
       ],
     });
 
     const post = postData.get({ plain: true });
 
-    res.render('single-post', {
+    res.render('single-post', { //render single post handlebar
       ...post,
       logged_in: req.session.logged_in
     });

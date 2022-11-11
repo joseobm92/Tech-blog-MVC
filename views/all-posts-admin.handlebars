@@ -25,13 +25,14 @@
 <div class="container mb-3">
   <div class="card">
     <div class="card-header">
-      {{post.title}}
+       <a href="/post/{{post.id}}">{{post.title}}</a>
     </div>
     <div class="card-body">
       
-      <h5 class="card-title">{{post.title}} {{post.user.username}}</h5>
+      <h5 class="card-title">{{post.title}}</h5>
    
       <p class="card-text">{{post.content}}</p>
+      <p>By: {{post.user.username}}</p>
     </div>
   </div>
 </div>

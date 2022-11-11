@@ -1,35 +1,36 @@
 {{#if logged_in}}
 <div class="container new-post-form mb-5 shadow pt-3 pb-3">
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Title:</label>
-    <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Content</label>
-    <input type="" class="form-control" id="contentInput">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title:</label>
+      <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Content</label>
+      <input type="" class="form-control" id="contentInput">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
 {{/if}}
 
 <div class="container border-bottom">
-<h2> Current Posts: </h2>
+  <h2> Current Posts: </h2>
 </div>
 {{!-- [posts come from homeroute] --}}
-{{#each posts as |post|}} 
+{{#each posts as |post|}}
 <div class="container mb-3 mt-3">
   <div class="card">
     <div class="card-header">
-      {{post.title}}
+      <a href="/post/{{post.id}}">{{post.title}}</a>
     </div>
     <div class="card-body">
-      
-      <h5 class="card-title">{{post.title}} {{post.user.username}}</h5>
-   
+
+      <h5 class="card-title">{{post.title}}</h5>
+
       <p class="card-text">{{post.content}}</p>
+      <p>By: {{post.user.username}}</p>
     </div>
   </div>
 </div>

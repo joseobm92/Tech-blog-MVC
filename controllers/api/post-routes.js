@@ -3,9 +3,9 @@ const Post = require('../../models/Post');
 const withAuth = require('../../utils/auth')
 
 // route to create/add a post
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => { //this is always requested from the new.js which is grabbing data from all-posts and all-posts-admin handlebars
   try { 
-    const postData = await Post.create({
+    const postData = await Post.create({ //creates a new post by using Post Modal!!
      
     title: req.body.title,
     content: req.body.content,
@@ -18,14 +18,15 @@ router.post('/', async (req, res) => {
 }
 });
 
-// TODO: According to MVC, what is the role of this action method?
-router.put('/:id', async (req, res) => {
-  // TODO: Where is this action method sending the data from the body of the fetch request? Why?
+
+router.put('/:id', async (req, res) => { // this is requested with edit.js which grabs data from single-post handlebar
+  
   try {
     const post = await Post.update(
     {
         title: req.body.title,
         content: req.body.content,
+        user_id: req.session.user_id,
     },
     {
       where: {

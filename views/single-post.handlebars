@@ -15,14 +15,41 @@
 </div>
 
 {{#if logged_in}}
-<div class="container new-post-form mb-5">
+<div class="container edit-post-form mb-5 shadow mt-3 pb-3 pt-3">
+    <h2>Modify the post</h2>
 <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Comment:</label>
+    <label for="exampleInputEmail1">Title:</label>
     <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">Your comment is going to be public, be gentle!</small>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Content</label>
+    <input type="" class="form-control" id="contentInput">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+
+<div class="container new-comment-form mb-5">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Comment:</label>
+    <input type="comment" class="form-control" id="commentInput">
+  </div>
+  <button type="submit" class="btn btn-primary" href="">Submit</button>
+</form>
+</div>
+
+
+{{#each comments as |comment|}} 
+<div class="container">
+    <h2>{{comment.description}}</h2>
+    {{!-- <h3>{{comment.user.username}}</h3> --}}
+</div>
+{{/each}}
 {{/if}}
+
+
+<script src="/js/comment.js"></script>
+<script src="/js/edit-post.js"></script>

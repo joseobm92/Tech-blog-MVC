@@ -1,25 +1,30 @@
-// async function newFormHandler(event) {
-//     event.preventDefault();
-//     const post_title = document.querySelector('#post_title').value;
-//     const comment = document.querySelector('#comment').value;
+async function newCommentHandler(event) {
+    event.preventDefault();
     
-//     const response = await fetch(`/api/post`, {
-//       method: 'POST',
-//       body: JSON.stringify({
-//         post_title,
-//         comment,
-//      }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+    const newComment = document.querySelector('#commentInput').value;
+
+    console.log(newComment)
+
+    const response = await fetch(`/api/comment`, {
+      method: 'POST',
+      body: JSON.stringify({
+
+        description: newComment,
+
+     }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   
-//     if (response.ok) {
-//       document.location.replace('/');
-//     } else {
-//       alert('Failed to add post');
-//     }
-//   }
+    if (response.ok) {
+      document.location.replace(`/`);
+    } else {
+      alert('Failed to add comment');
+    }
+  }
   
-//   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', newCommentHandler);
   
