@@ -8,13 +8,36 @@
             {{title}}
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{title}} {{user.username}}</h5>
+            <h5 class="card-title">{{title}}</h5>
+            
             <p class="card-text">{{content}}</p>
+            <p>By: {{post.user.username}}</p>
         </div>
     </div>
 </div>
 
+{{#each comments as |comment|}} 
+<div class="container">
+    <h1>Comments:</h1>
+    <h2>{{comment.description}}</h2>
+    {{!-- <h3>{{comment.user.username}}</h3> --}}
+</div>
+{{/each}}
+
 {{#if logged_in}}
+{{!-- FORM TO CREATE A NEW COMMENT --}}
+<div class="container new-comment-form mb-5 mt-5 bg-info py-3 rounded shadow">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Comment:</label>
+    <input type="comment" class="form-control" id="commentInput">
+  </div>
+  <button type="submit" class="btn btn-primary" href="">Submit</button>
+</form>
+</div>
+
+{{!-- FORM TO UPDATE A POST WHICH IS HANDLE BY THE EDIT-POST.JS --}}
+
 <div class="container edit-post-form mb-5 shadow mt-3 pb-3 pt-3">
     <h2>Modify the post</h2>
 <form>
@@ -30,26 +53,8 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-
-<div class="container new-comment-form mb-5">
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Comment:</label>
-    <input type="comment" class="form-control" id="commentInput">
-  </div>
-  <button type="submit" class="btn btn-primary" href="">Submit</button>
-</form>
-</div>
-
-
-{{#each comments as |comment|}} 
-<div class="container">
-    <h2>{{comment.description}}</h2>
-    {{!-- <h3>{{comment.user.username}}</h3> --}}
-</div>
-{{/each}}
 {{/if}}
 
 
-<script src="/js/comment.js"></script>
+<script src="/js/new-comment.js"></script>
 <script src="/js/edit-post.js"></script>

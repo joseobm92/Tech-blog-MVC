@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Comment = require('../../models/Comment');
 const User = require('../../models/User');
 const Post = require('../../models/Post')
+const withAuth = require('../../utils/auth')
 
 // route to create/add a COMMENT
 router.post('/', async (req, res) => { //this is always requested by comment.js which is grabbing data from single-post
@@ -20,33 +21,37 @@ router.post('/', async (req, res) => { //this is always requested by comment.js 
 }
 });
 
-router.get('/', async (req, res) => {
-  
-  
-  try {
-    // Get all projects and JOIN with user data
-    const commentData = await Comment.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username',],
-        },
-      ],
-    });
+// router.get('/', async (req, res) => {
 
-    // Serialize data so the template can read it
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+  
+//   try {
+//     // Get all projects and JOIN with user data
+//     const commentData = await Comment.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['username',],
+//         },
+//       ],
+//     });
 
-    // Pass serialized data and session flag into template
+//     // Serialize data so the template can read it
+//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
     
-    res.render('single-post', {
-      comments,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('single-post', {
+//       comments,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+
+  
+// });
+
+
 
 // TODO: According to MVC, what is the role of this action method?
 router.put('/:id', async (req, res) => {

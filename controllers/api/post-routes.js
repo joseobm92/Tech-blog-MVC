@@ -19,7 +19,7 @@ router.post('/', async (req, res) => { //this is always requested from the new.j
 });
 
 
-router.put('/:id', async (req, res) => { // this is requested with edit.js which grabs data from single-post handlebar
+router.put('/:id', async (req, res) => { // this is requested with edit-post.js which grabs data from single-post handlebar data from form
   
   try {
     const post = await Post.update(
