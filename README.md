@@ -1,4 +1,6 @@
 
+<p id="readme-top"></p>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   # Tech-blog-MVC
   
@@ -26,11 +28,14 @@
 
 1. https://quiet-mountain-31080.herokuapp.com/
 
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
     
 
   ## Description
 
   This application is a blog focus on tech created using node.js, express.js, mySQL, sequelize, express handlebars, express session, dotenv, bcrypt, connect-session-sequelize among other tools; to provide the user with an application that allows the user to signup, login and logout of their account, once they are logged in they can create and edit posts, and they can create comments on posts. Eveyrhing was done following the MVC programming paradigm.
+
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
   ## Usage
 
@@ -64,7 +69,7 @@ As a user:
 ```
 
 
-
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
   ## Contribution
 
@@ -72,15 +77,20 @@ As a user:
 
   ## Demo
 
+
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
   ## License
   This project is licensed under the [The MIT License](https://opensource.org/licenses/MIT)
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
       
   ## Questions
   * Checkout my [GitHub profile](https://github.com/joseobm92)
   
   * Any additional questions or feed back, feel free to [send an email](mailto:joseobm92@gmail.com). 
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   ## License
   Copyright (c) [ joseobm92](https://github.com/joseobm92). All rights reserved.
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
   Licensed under the The MIT License license.

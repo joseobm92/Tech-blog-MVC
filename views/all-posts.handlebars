@@ -15,14 +15,17 @@
 </div>
 {{/if}}
 
-<div class="container border-bottom">
+<div class="container border-bottom border-info pb-2">
   <h2> Current Posts: </h2>
 </div>
 {{!-- [posts come from homeroute] --}}
 {{#each posts as |post|}}
 <div class="container mb-3 mt-3">
-  <div class="card">
-    <div class="card-header">
+  <div class="card border-info">
+    <div class="card-header border-info">
+      <button type="button" class="close close-btn" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <a href="/post/{{post.id}}">{{post.title}}</a>
     </div>
     <div class="card-body">
@@ -38,3 +41,4 @@
 
 
 <script src="/js/new-post.js"></script>
+<script src="/js/delete-post.js"></script>

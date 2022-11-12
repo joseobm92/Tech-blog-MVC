@@ -3,34 +3,37 @@
 </div>
 
 <div class="container new-post-form mb-5 shadow pb-3 pt-3">
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Title:</label>
-    <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Content</label>
-    <input type="" class="form-control" id="contentInput">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title:</label>
+      <input type="" class="form-control" id="titleInput" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Content</label>
+      <input type="" class="form-control" id="contentInput">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
 
 
 <div class="container mb-3 text-centered">
-<h2> Current Posts: </h2>
+  <h2> Current Posts: </h2>
 </div>
 {{#each posts as |post|}}
 <div class="container mb-3">
-  <div class="card">
-    <div class="card-header">
-       <a href="/post/{{post.id}}">{{post.title}}</a>
+  <div class="card border-info">
+    <div class="card-header border-info">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <a href="/post/{{post.id}}">{{post.title}}</a>
     </div>
     <div class="card-body">
-      
+
       <h5 class="card-title">{{post.title}}</h5>
-   
+
       <p class="card-text">{{post.content}}</p>
       <p>By: {{post.user.username}}</p>
     </div>

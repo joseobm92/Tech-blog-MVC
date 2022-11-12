@@ -3,7 +3,7 @@ const Post = require('../models/Post');
 const withAuth = require('../utils/auth')
 const User = require('../models/User');
 
-// route to get all post
+// route to get all post and render thru all-post-admin handlebar
 // Use withAuth middleware to prevent access to route
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -31,42 +31,28 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => { //add withAuth to block user from Clicking a single Post and redirect them to login!
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username', 'id',],
-        },
-      ],
-    });
+//route to get a single post thru single-post handlebar
+// router.get('/post/:id', withAuth, async (req, res) => { //add withAuth to block user from Clicking a single Post and redirect them to login!
+//   try {
+//     const postData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['username', 'id',],
+//         },
+//       ],
+//     });
 
-    const post = postData.get({ plain: true });
+//     const post = postData.get({ plain: true });
 
-    res.render('single-post', { //render single post handlebar
-      ...post,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('single-post', { //render single post handlebar
+//       ...post,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-  // to CREATE a new POST FUNCTIONALITY
-  // router.post('/', withAuth, async (req, res) => {
-  //   try { 
-  //     const postData = await Post.create({
-       
-  //     title: req.body.title,
-  //     content: req.body.content,
-      
-  //   });
-  //   res.status(200).json(postData)
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
-  // });
-
-
+// export the route
 module.exports = router;
