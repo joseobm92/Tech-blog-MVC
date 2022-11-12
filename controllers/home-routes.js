@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 //get a single post by pk and render thru single-post handlebar
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id',withAuth, async (req, res) => {
   try {
       const commentData = await Comment.findAll({
           where: {
@@ -49,7 +49,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
       res.render('single-post', {
           ...post,
           comments,
-          loggedIn: req.session.loggedIn
+          logged_in: req.session.logged_in
       });
   } catch (err) {
       res.status(500).json(err);
